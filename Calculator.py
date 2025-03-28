@@ -12,10 +12,29 @@ def subtract(x, y):
 def multiply(x, y):
     return x * y
 
-# This function divides two numbers
-def divide(x, y):
-    return x / y
 
+# Function to divide two numbers
+def divide(x, y):
+    """
+    Divide x by y and return the result
+    Args:
+        x (float): First number
+        y (float): Second number
+    Returns:
+        float: The quotient of x divided by y
+    Raises:
+        ValueError: If y is zero
+    """
+    # Convert inputs to float
+    x = float(x)
+    y = float(y)
+    
+    # Check for division by zero
+    if y == 0:
+        raise ValueError("Cannot divide by zero!")
+    
+    # Return the quotient
+    return x / y
 
 print("Select operation.")
 print("1.Add")
@@ -46,8 +65,10 @@ while True:
             print("You enter code for #3 here")
             
         elif choice == '4':
-            print("You enter code for #4 here")
-            
+                    try:
+                        print(f"{num1} / {num2} = {divide(num1, num2)}")
+                    except ValueError as e:
+                        print(e)            
         # check if user wants another calculation
         # break the while loop if answer is no
         next_calculation = input("Let's do next calculation? (yes/no): ")
